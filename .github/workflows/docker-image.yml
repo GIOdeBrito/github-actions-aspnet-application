@@ -17,11 +17,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Create env file
+      - name: Create env file for main application
         run:
-          touch .env
-          echo "# Keep it empty for now" > .env
-          cat .env
+          touch app/.env
+          echo "# Keep it empty for now" > app/.env
+          cat app/.env
           printf "\n\n"
 
       - name: Build with docker compose

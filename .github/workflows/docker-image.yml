@@ -17,10 +17,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build and run with docker compose
+      - name: Create env file
+        run:
+          touch .env
+          echo "# Keep it empty for now" > .env
+          cat .env
+          printf "\n\n"
+
+      - name: Build with docker compose
         run: |
           echo "Begin image build"
-          docker compose --env-file /dev/null build
-          echo "Starting container"
-          docker compose --env-file /dev/null up
+          docker compose build
+
+      - name: Run with docker compose
+        run: |
+          echo "Running container"
+          docker compose up
           echo "done"

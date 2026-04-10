@@ -1,26 +1,24 @@
 name: Docker Image CI
 
 on:
-    push:
-        branches: [ "main" ]
-    pull_request:
-        branches: [ "main" ]
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-
-    build:
-
+  build:
     runs-on: ubuntu-latest
-
     env:
-        APP_NAME=App
-        APP_PORT=3000
-        API_PORT=5200
+      APP_NAME: App
+      APP_PORT: 3000
+      API_PORT: 5200
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build and run with docker compose
-      run: |
+      - uses: actions/checkout@v4
+
+      - name: Build and run with docker compose
+        run: |
           echo "Begin image build"
           docker compose build
           echo "Start container"

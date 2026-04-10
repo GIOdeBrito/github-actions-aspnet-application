@@ -6,3 +6,34 @@ html, body {
 main {
 	padding: 1rem 2rem;
 }
+
+.div-http-request {
+	background-color: #d2d2d2;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.div-http-request label {
+	font-weight: bold;
+}
+
+.div-http-request label > span[data-name="request-link"] {
+	color: #028fd5;
+	text-decoration: underline;
+}
+
+.div-http-request button {
+	padding: .5rem 2rem;
+	border: 0;
+	background-color: #4395bd;
+	color: #fff;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background-color 200ms ease;
+}
+
+.div-http-request button:hover {
+	background-color: #296a8a;
+}

@@ -7,7 +7,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <title>Github Actions Application</title>
 	    <link rel="stylesheet" href="/style/main.css">
-	    <!--<script type="text/javascript" src="/src/main.js"></script>-->
+	    <script type="text/javascript" src="/src/main.js"></script>
 	</head>
 
 	<body>
@@ -16,6 +16,26 @@
 
 			<article>
 				<p>Lorem ipsum</p>
+			</article>
+
+			<article>
+				<h4>Consume API</h4>
+
+				<div class="div-http-request">
+					<button data-name="bcall-time" class="button-green">GET</button>
+					<label for="">
+						Call <span data-name="request-link">http://localhost:5200/time</span>
+					</label>
+				</div>
+
+				<br>
+
+				<div class="div-http-request">
+					<button data-name="bcall-api" class="button-green">GET</button>
+					<label for="">
+						Call <span data-name="request-link">http://localhost:5200/api</span>
+					</label>
+				</div>
 			</article>
 		</main>
 	</body>

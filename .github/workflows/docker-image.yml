@@ -20,6 +20,7 @@ jobs:
       - name: Build and run with docker compose
         run: |
           echo "Begin image build"
-          docker compose build
-          echo "Start container"
-          docker compose up
+          docker compose --env-file /dev/null build
+          echo "Starting container"
+          docker compose --env-file /dev/null up
+          echo "done"

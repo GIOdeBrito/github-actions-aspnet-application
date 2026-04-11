@@ -16,6 +16,7 @@ services:
         networks:
             - gh-aspnet-network
         tty: true
+        profiles: [ "dev" ]
         command: dotnet watch run
         #command: sleep infinity
         #command: dotnet new web -o ${APP_NAME}
@@ -36,7 +37,41 @@ services:
         networks:
             - gh-aspnet-network
         tty: true
+        profiles: [ "dev" ]
         command: dotnet watch run
+
+    app-release:
+        container_name: gh-aspnet-application-release
+        build:
+            context: ./app
+            dockerfile: Dockerfile.release
+        env_file: app/.env
+        environment:
+            ASPNETCORE_HTTP_PORTS: 8080
+            ASPNETCORE_ENVIRONMENT: Production
+        ports:
+            - "${APP_PORT}:8080"
+        networks:
+            - gh-aspnet-network
+        tty: true
+        profiles: [ "release" ]
+        command: dotnet ./App.dll
+
+    api-service-release:
+        container_name: gh-aspnet-api-release
+        build:
+            context: ./api
+            dockerfile: Dockerfile.release
+        environment:
+            ASPNETCORE_HTTP_PORTS: 8080
+            ASPNETCORE_ENVIRONMENT: Production
+        ports:
+            - "${API_PORT}:8080"
+        networks:
+            - gh-aspnet-network
+        tty: true
+        profiles: [ "release" ]
+        command: dotnet ./Api.dll
 
 networks:
     gh-aspnet-network: {}
